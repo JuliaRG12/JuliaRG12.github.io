@@ -1,0 +1,6 @@
+body { background: white; }
+
+h1 {
+  text-shadow: 0 1px 0 navy, 0 -1px 0 navy, 1px 0 0 navy, -1px 0 0 navy;
+  color: white;
+}
