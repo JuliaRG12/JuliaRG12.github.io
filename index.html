@@ -3,6 +3,27 @@
 <head>
 <link rel="stylesheet" type="text/css" href="mystyle.css">
   <style> 
+  
+  ul {
+  list-style-type: none;
+  margin: 5;
+  overflow: hidden;
+}
+
+li {
+  float: left;
+  display: block;
+  padding: 8px;
+  background-color: blue;
+  
+}
+
+div.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+
     h1{
 margin-left: 30px;
 }
@@ -50,12 +71,13 @@ span.c {
  }
   </style>
 </head>
-
-<nav>
-  <a style="color:navy" href="http://webp.svsu.edu/~jrgavuli/">M Drive</a> *
-  <a style="color:navy" href="https://csis.svsu.edu/~jrgavuli/">CSIS Server</a> *
-  <a style="color:navy" href="https://JuliaRG12.github.io/">Github.io</a> *
-  </nav>
+<div class="sticky">
+<ul>
+  <li><a style="color:white" href="http://webp.svsu.edu/~jrgavuli/">M Drive</a> </li>
+  <li><a style="color:white" href="https://csis.svsu.edu/~jrgavuli/">CSIS Server</a> </li>
+  <li><a style="color:white" href="https://JuliaRG12.github.io/">Github.io</a> </li>
+  </ul>
+</div>
 <img src="https://via.placeholder.com/150" alt="place holder" />
 <h1> Hello, Github.io </h1>
 <p class="assign2">The CSS <code>background-color</code> property defines the background color of an element.</p>
