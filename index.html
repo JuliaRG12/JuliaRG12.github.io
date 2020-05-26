@@ -22,7 +22,10 @@ div.sticky {
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-
+  background-color: blue;
+  border: black;
+  color: white;
+  padding: 1px;}
 
     h1{
 margin-left: 30px;
@@ -33,7 +36,10 @@ margin-left: 30px;
     -moz-transform: rotateY(180deg);
     transform: rotateY(180deg);
  }
-    p.assign2 {
+    p.quoets {
+  color: #AFD8FC;
+}
+ a.quoets {
   color: #AFD8FC;
 }
   #name {
@@ -45,7 +51,7 @@ margin-left: 30px;
   width: 100px;
   height: 5px;
   padding: 2.5px;
-  border: 1px solid blue;  
+  border: 1px solid lightblue;  
   background-color: yellow; 
 }
 
@@ -54,7 +60,7 @@ span.b {
   width: 200px;
   height: 17px;
   padding: 2.5px;
-  border: 1px solid blue;    
+  border: 1px solid lightblue;    
   background-color: yellow; 
 }
 
@@ -63,24 +69,42 @@ span.c {
   width: 10px;
   height: 100px;
   padding: 2.5px;
-  border: 1px solid blue;    
+  border: 1px solid lightblue;    
   background-color: yellow; 
 }
  #size:hover {
-     visibility: hidden;;
- }
+     visibility: hidden;
+     }
+    div.relative {
+  position: relative;
+  width: 400px;
+  height: 200px;
+  border: 3px solid #73AD21;
+} 
+
+div.absolute {
+  position: absolute;
+  top: 80px;
+  right: 0;
+  width: 200px;
+  height: 100px;
+  border: 3px solid #73AD21;
+} 
   </style>
 </head>
-<div class="sticky">
+
 <ul>
   <li><a style="color:white" href="http://webp.svsu.edu/~jrgavuli/">M Drive</a> </li>
   <li><a style="color:white" href="https://csis.svsu.edu/~jrgavuli/">CSIS Server</a> </li>
   <li><a style="color:white" href="https://JuliaRG12.github.io/">Github.io</a> </li>
   </ul>
-</div>
+
 <img src="https://via.placeholder.com/150" alt="place holder" />
 <h1> Hello, Github.io </h1>
-<p class="assign2">The CSS <code>background-color</code> property defines the background color of an element.</p>
+<div class="sticky">
+<p> Thank you for visiting </p>
+</div>
+<p class="quotes">The CSS <code>background-color</code> property defines the background color of an element.</p>
 
 <form action="/action_page.php">
   <label for="email">Please enter your Email:</label><br>
@@ -96,7 +120,7 @@ span.c {
   <option value="nofries">no fries</option>
 </select>
   
-<div class="assign1">
+<div class="quotes">
 <p>"ARPANET adopted TCP/IP on January 1, 1983, and from there researchers began to assemble the “network of networks” that became the modern Internet." <br>
   <a href="https://www.history.com/news/who-invented-the-internet">https://www.history.com/news/who-invented-the-internet</a>
 </p>
@@ -108,7 +132,15 @@ span.c {
 <p>"HTML stands for Hypertext Markup Language, and is used to describe the visual appearance of a document to be displayed by a internet browser." <br>
   <a href="https://www.tech-faq.com/how-does-html-work.html">https://www.tech-faq.com/how-does-html-work.html</a>
 </p>
-  </div>
+  
+  <p>"CSS is independent of HTML and can be used with any XML-based markup language."<br>
+  <a href="https://www.w3.org/standards/webdesign/htmlcss.html">https://www.w3.org/standards/webdesign/htmlcss.html</a>
+  </p>
+  <p>"Bootstrap is a framework to help you design websites faster and easier. It includes HTML and CSS based design templates for typography, forms, buttons, tables, navigation, modals, image carousels, etc."<br>
+  <a href="https://www.google.com/search?q=bootstrap&rlz=1C1JZAP_enUS879US879&oq=Bootstrap&aqs=chrome.0.0l8.780j0j4&sourceid=chrome&ie=UTF-8">https://www.google.com/search?q=bootstrap&rlz=1C1JZAP_enUS879US879&oq=Bootstrap&aqs=chrome.0.0l8.780j0j4&sourceid=chrome&ie=UTF-8</a>
+  </p>
+</div>
+  
 <div class="pudding">
   <h1 id="name">Baked Blueberry Pudding</h1>
   <p id="size">Makes 9 servings.</p>
@@ -116,17 +148,14 @@ span.c {
   
 
 
-
-
 <div> <span class="b">2 cups flour</span> <span class="b">1 cup sugar</span> <span class="b">2 teaspoons baking powder</span><span class="b">3/4 teaspoon nutmeg</span> <span class="b">1/2 teaspoon salt</span><span class="b">1/ teaspoon grated lemon peel</span><span class="b">3/4 cup butter</span><span class="b">2 eggs, beaten</span><span class="b">3/4 cup milk</span><span class="b">2 cups blueberries</span><span class="b">Lemon Sauce</span> </div>
 
 
 <div> Mix together <span class="a">flour</span> <span class="a"> sugar</span> <span class="a">baking powder</span><span class="a">nutmeg</span><span class="a">salt</span> and <span class="a">lemon peel</span>. cut in <span class="a">butter</span> with a pastry blender untill size of small peas. Add <span class="a">eggs</span> and <span class="a"> milk</span> at low speed of mixer 3 minutes or until thoroughly blended. pour into greased and floured 9x9x2 inch pan and top with <span class="a">blueberries</span>. Bake at 350 degrees 1 hour 10 minutes or unlitl tester comes out cleam. Serve warm with <span class="a">lemon Sauce</span>. </div>
 
+<div class="relative"><img src="https://via.placeholder.com/150" alt="place holder" />
+  <div class="absolute"><img src="https://via.placeholder.com/150" alt="place holder" /></div>
+</div>
 
-
-<h2>display: block</h2>
-<div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum consequat scelerisque elit sit amet consequat. Aliquam erat volutpat. <span class="c">Aliquam</span> <span class="c">venenatis</span> gravida nisl sit amet facilisis. Nullam cursus fermentum velit sed laoreet. </div>
-  
 </html>
 <nav>
