@@ -1,0 +1,10 @@
+body { background: #E0FFFF; }
+
+h1 {
+  text-shadow: 0 1px 0 #B1FFFF, 0 -1px 0 #B1FFFF, 1px 0 0 #B1FFFF, -1px 0 0 #B1FFFF;
+  color: white;
+}
+
+p {
+  color: #B1FFFF;
+}
