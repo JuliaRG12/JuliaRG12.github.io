@@ -1,10 +1,12 @@
-body { background: #E0FFFF; }
+body { background: #D4FFFF; }
 
 h1 {
-  text-shadow: 0 1px 0 #B1FFFF, 0 -1px 0 #B1FFFF, 1px 0 0 #B1FFFF, -1px 0 0 #B1FFFF;
+  text-shadow: 0 1px 0 #5CFFFF, 0 -1px 0 #5CFFFF, 1px 0 0 #5CFFFF, -1px 0 0 #5CFFFF;
   color: white;
+  margin: auto;
 }
 
 p {
-  color: #B1FFFF;
+  color: #5CFFFF;
+  margin: auto;
 }
