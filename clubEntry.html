@@ -43,8 +43,8 @@
 				localStorage.setItem("clubsUndo", str);
 				var newClubName = document.getElementById('clubName').value;
 				var newClubStartPosition = parseInt(clubs[clubs.length-1][0]) + 100;
-				var arrNewEntry = [ newClubStartPosition, newClubName, newClubName, 0, 0, 0, 0, 0, 0, 0];
-				clubs.push(arrNewEntry);
+				var arrTemp = [ newClubStartPosition, newClubName, newClubName, 0, 0, 0, 0, 0, 0, 0];
+				clubs.push(arrTemp);
 				// save the clubs array
 				var str = JSON.stringify(clubs);
 				localStorage.setItem("clubs", str);
