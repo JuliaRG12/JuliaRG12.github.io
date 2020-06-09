@@ -183,7 +183,7 @@
     <td >Totals:</td>
     <td >72</td>
     <td >-</td>
-    <td >-</td>
+    <td ></td>
     <td></td>
   </tr>
 </table>
@@ -215,23 +215,23 @@ function add1 (elem) {
   else {
     let currentScore = elem.children[2].innerHTML;
     currentScore = Number.parseInt(currentScore);
-    over -= (currentOver - par);
+    //over -= (currentOver - par);
     elem.children[3].innerHTML = currentScore - par +1
     elem.children[2].innerHTML = currentScore + 1;
   }
-  let currentOver = elem.children[2].value;
-  currentOver = Number.parseInt(currentOver);
-    over += (currentOver - par);
-   total.children[3].innerHTML = over;
+ // let currentOver = elem.children[2].innerHTML;
+ // currentOver = Number.parseInt(currentOver);
+   // over += (currentOver - par);
+   // total.children[3].innerHTML = over;
 }
 
 function subtract1 (elem) {
     let par = elem.children[1].innerHTML;
     par = Number.parseInt(par);
     score--;
-    over --; 
+    //over --; 
     total.children[2].innerHTML = score;
-    total.children[3].value = over;
+    //total.children[3].innerHTML = over;
     
     
   if(elem.children[2].innerHTML == "-") {elem.children[2].innerHTML = "-1";    
@@ -249,7 +249,7 @@ function subtract1 (elem) {
 
 function clear (elem) {
 score -=elem.children[2].innerHTML;
-over-=elem.children[3].value;
+//over-=elem.children[3].innerHTML;
  elem.children[3].innerHTML = "-";
   elem.children[2].innerHTML = "-";
   total.children[2].innerHTML = score;
@@ -259,7 +259,12 @@ function score(){
 document.getElementById("total")
 total.children[2].innerHTML=score;
 }
-
+ function newCard(){
+   for (i=0; i>18; i++);
+   arr[i] = i.children[2].value;
+   clear(i);
+   }
+ }
     </script>
 </body>
 </html>
