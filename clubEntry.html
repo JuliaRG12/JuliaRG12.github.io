@@ -38,9 +38,15 @@
 	var newClubName ;
 	var newClubDistances;
 	
-	function addClub() {
-                // your code here
+	function addClub(club) {
+	var str = JSON.stringify(clubs);
+	localStorage.setItem("clubsUndo", str);
+	var newClubName = document.getElementById('clubName').value;
+	var newClubStartPosition = parseInt(clubs[clubs.length-1][0]) + 100;
+	var newClubNameAbbreviation = newClubName.slice(0, 4);
+	clubs.push({newClubStartPosition, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0});
 	}
+}
 </script>
 
 	
