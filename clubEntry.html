@@ -38,17 +38,17 @@
 	var newClubName ;
 	var newClubDistances;
 	
-	function addClub(clubs) {
-	var str = JSON.stringify(clubs);
-	localStorage.setItem("clubsUndo", str);
-	var newClubName = document.getElementById('clubName').value;
-	var newClubDistances = parseInt(clubs[clubs.length-1][0]) + 100;
-	var newClubNameAbbreviation = newClubName;//.slice(0, 4);
-	var arrTemp =[newClubDistances, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]
-	clubs.push(arrTemp);
-	var str = JSON.stringify(clubs);
-	localStorage.setItem("clubs", str);
-	if (clubs.length > 15) window.alert("Warning: you are only allowed to carry 14 clubs in your golf bag in match play competition.");
+	function addClub() {
+                var str = JSON.stringify(clubs);
+				localStorage.setItem("clubsUndo", str);
+				var newClubName = document.getElementById('clubName').value;
+				var newClubStartPosition = parseInt(clubs[clubs.length-1][0]) + 100;
+				var arrNewEntry = [ newClubStartPosition, newClubName, newClubName, 0, 0, 0, 0, 0, 0, 0];
+				clubs.push(arrNewEntry);
+				// save the clubs array
+				var str = JSON.stringify(clubs);
+				localStorage.setItem("clubs", str);
+				if (clubs.length > 15) window.alert("Warning: you are only allowed to carry 14 clubs in your golf bag in match play competition.");
 	}
 
 </script>
