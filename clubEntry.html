@@ -44,9 +44,10 @@
 	var newClubName = document.getElementById('clubName').innerHTML;
 	var newClubStartPosition = parseInt(clubs[clubs.length-1][0]) + 100;
 	var newClubNameAbbreviation = newClubName.slice(0, 4);
-	clubs.push([newClubStartPosition, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]);
+	var arrTemp =[newClubStartPosition, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]
+	clubs.push(arrTemp);
 	}
-}
+
 </script>
 
 	
