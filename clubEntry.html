@@ -38,11 +38,11 @@
 	var newClubName ;
 	var newClubDistances;
 	
-	function addClub(clubs, clubRow) {
-	//var str = JSON.stringify(clubs);
-	//localStorage.setItem("clubsUndo", str);
-	newClubName = document.getElementById('clubName').innerHTML;
-	newClubDistances = parseInt(clubs[clubs.length-1][0]) + 100;
+	function addClub(clubs) {
+	var str = JSON.stringify(clubs);
+	localStorage.setItem("clubsUndo", str);
+	var newClubName = document.getElementById('clubName').innerHTML;
+	var newClubDistances = parseInt(clubs[clubs.length-1][0]) + 100;
 	var newClubNameAbbreviation = newClubName.slice(0, 4);
 	var arrTemp =[newClubDistances, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]
 	clubs.push(arrTemp);
