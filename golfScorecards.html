@@ -9,7 +9,8 @@
 </head>
 <body>
 <h1>Golf Scorecard</h1> 
-  <button class="btn btn-success" onclick="newCard()">New Card</button>
+	<tr id="new">
+		<button class="btn btn-success" onclick="newCard()">New Card</button></tr>
 <table class="table table-striped">
   <tr id="0">
     <th>Hole</th>
@@ -202,6 +203,7 @@ elem.children[4].children[1].onclick
   = function(){subtract1(elem);};
 elem.children[4].children[2].onclick 
   = function(){clear(elem);};
+
   }
  
 
@@ -268,16 +270,18 @@ total.children[2].innerHTML=score;
 	//localStorage.setItem("cards", str);
 	//window.location.href = "golfScorecards.html";
    for (i=1; i>18; i++){
+ new.onclick 
+  = function(){clear(i);
   // var arr[0] = "6/9/2020"
   //   arr[i]= i.children[2].value;
 //cards.push(arr[i]);  
-   i.children[3].innerHTML = "-";
+ /*  i.children[3].innerHTML = "-";
   i.children[2].innerHTML = "-";}
   total.children[2].innerHTML = 0;
   total.children[3].innerHTML = 0;
   score = 0;
 	 over = 0;
-	 
+*/	 
      	//var str = JSON.stringify(cards);
 		//localStorage.setItem("cards", str);
  }
