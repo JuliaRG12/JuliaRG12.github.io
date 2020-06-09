@@ -46,6 +46,8 @@
 	var newClubNameAbbreviation = newClubName.slice(0, 4);
 	var arrTemp =[newClubDistances, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]
 	clubs.push(arrTemp);
+	var str = JSON.stringify(clubs);
+	localStorage.setItem("clubs", str);
 	}
 
 </script>
