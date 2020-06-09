@@ -1,10 +1,3 @@
-// ----- Functions (clubDistanceList.html) -----
-// possible features to add: reset one specific club, add/remove a club,
-// multiple "undo" (undo history), add "confirm" before reset/undo,
-// histogram of club distances,
-// move Bootstrap files to local subdirectory so works if no Internet
-
-
 // initialize "clubs" array
 function loadClubDistances() {
 	// if "clubs" array already exists, load it from local storage
