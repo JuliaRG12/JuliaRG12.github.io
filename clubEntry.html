@@ -43,7 +43,7 @@
 	localStorage.setItem("clubsUndo", str);
 	var newClubName = document.getElementById('clubName').value;
 	var newClubDistances = parseInt(clubs[clubs.length-1][0]) + 100;
-	var newClubNameAbbreviation = newClubName.slice(0, 4);
+	var newClubNameAbbreviation = newClubName;//.slice(0, 4);
 	var arrTemp =[newClubDistances, newClubNameAbbreviation, newClubName, 0, 0, 0, 0, 0, 0, 0]
 	clubs.push(arrTemp);
 	var str = JSON.stringify(clubs);
