@@ -9,8 +9,8 @@
 </head>
 <body>
 <h1>Golf Scorecard</h1> 
-	<tr id="new">
-		<button class="btn btn-success" onclick="newCard()">New Card</button></tr>
+	<tr id="new"><td>
+		<button class="btn btn-success" onclick="newCard()">New Card</button></td></tr>
 <table class="table table-striped">
   <tr id="0">
     <th>Hole</th>
@@ -271,7 +271,7 @@ total.children[2].innerHTML=score;
 	//window.location.href = "golfScorecards.html";
    for (i=1; i>18; i++){
  new.onclick 
-  = function(){clear(i);
+  = function(){clear(i);}
   // var arr[0] = "6/9/2020"
   //   arr[i]= i.children[2].value;
 //cards.push(arr[i]);  
@@ -284,7 +284,7 @@ total.children[2].innerHTML=score;
 */	 
      	//var str = JSON.stringify(cards);
 		//localStorage.setItem("cards", str);
- }
+   }
     </script>
 </body>
 </html>
