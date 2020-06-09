@@ -260,13 +260,13 @@ function score(){
 document.getElementById("total")
 total.children[2].innerHTML=score;
 }
-  let cards = ["6/8/2020", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
+    
+ function newCard(){
+	   let cards = ["6/8/2020", 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]},
     
   var str = JSON.stringify(cards);
 	localStorage.setItem("cards", str);
 	window.location.href = "golfScorecards.html";
-    
- function newCard(){
    for (i=1; i>18; i++){
    var arr[0] = "6/9/2020"
      arr[i]=i.children[2].value;
