@@ -30,7 +30,7 @@
 // declare-initialize global variables
 var URL = "https://api.covid19api.com/summary";
 var covidJson;
-var TotalConfirmedUnder20;
+var TotalConfirmedUnder27;
 
 // load API content into variables
 // code below modified from: 
@@ -50,32 +50,18 @@ function loadContent() {
       // loop through countries in API summary
       // instead: write code to use filter() method!
       
-      TotalConfirmedUnder20 = [];
+      TotalConfirmedUnder27 = [];
   
 	    for (let c of covidJson.Countries) {
-        if (c.TotalConfirmed < 20) {
-          TotalConfirmedUnder20.push({ 
+        if (c.TotalConfirmed < 27) {
+          TotalConfirmedUnder27.push({ 
             "Slug": c.Slug, 
             "TotalConfirmed": c.TotalConfirmed, 
             "TotalRecovered": c.TotalRecovered
           });
         }
       }
-
-/*     
-function map(array, transform) {
-  let mapped = [];
-  for (let element of array) {
-    mapped.push(transform(element));
-  }
-  return mapped;
-}
-let less = TotalConfirmedUnder20.filter(s => s.TotalConfirmed < 20);
-console.log(map(less, s => s.TotalConfirmed ));
-      
      
-      
- */     
       
       chartData.data.datasets[0].backgroundColor = 
         "rgba(100,100,100,0.4)";
@@ -86,11 +72,11 @@ console.log(map(less, s => s.TotalConfirmed ));
       chartData.data.datasets[1].label = 
         'Total Recovered';
       chartData.data.labels = 
-        TotalConfirmedUnder20.map( (x) => x.Slug );
+        TotalConfirmedUnder27.map( (x) => x.Slug );
       chartData.data.datasets[0].data = 
-        TotalConfirmedUnder20.map( (x) => x.TotalConfirmed );
+        TotalConfirmedUnder27.map( (x) => x.TotalConfirmed );
       chartData.data.datasets[1].data = 
-        TotalConfirmedUnder20.map( (x) => x.TotalRecovered );
+        TotalConfirmedUnder27.map( (x) => x.TotalRecovered );
       var myChart = new Chart(ctx, chartData); 
 
     }
