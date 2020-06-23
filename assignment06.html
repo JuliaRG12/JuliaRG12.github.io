@@ -118,8 +118,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="jquery-3.5.1.min.js"></script>
 		
-		<script>// --- global variables ---
-
+		// --- global variables ---
 var loans = [
   { loan_year: 2020, loan_amount: 10000.00, loan_int_rate: 0.0453 },
   { loan_year: 2021, loan_amount: 10000.00, loan_int_rate: 0.0453 },
@@ -127,13 +126,13 @@ var loans = [
   { loan_year: 2023, loan_amount: 10000.00, loan_int_rate: 0.0453 },
   { loan_year: 2024, loan_amount: 10000.00, loan_int_rate: 0.0453 }
 ]; 
-
 // --- function: ready ---
-$(document).ready(function(){
-//function ready() {
+$(document).ready( load());
+//when page loades .ready( load()) 
   
-  // pre-fill defaults for first loan year
- 
+ // load table
+ function load(){
+    // pre-fill defaults for first loan year
   var defaultYear = loans[0].loan_year;
    $("#loan_year0" + 1).val(defaultYear); //changed to jquery (getelementById and value = defaultYear)
   var defaultLoanAmount = loans[0].loan_amount; 
@@ -141,11 +140,13 @@ $(document).ready(function(){
   var defaultInterestRate = loans[0].loan_int_rate;
   $("#loan_int0" + 1).val(defaultInterestRate); //changed to jquery (getelementById and value = defaultInterestRate)
   var loanWithInterest = loans[0].loan_amount * (1 + loans[0].loan_int_rate);
-   $("#loan_bal0" + 1).innerHTML = toComma(loanWithInterest.toFixed(2));//changed to jquery (getelementById)
-  
+   $("#loan_bal0" + 1).val( toComma(loanWithInterest.toFixed(2)));//changed to jquery (getelementById)
+   // increment defaultYear by one
+  defaultYear++;
+   
   // pre-fill defaults for other loan years
-  for(var i=2; i<6; i++) {
-    $("#loan_year0" + i).val(defaultYear++); //changed to jquery (getelementById and value = defaultYear++)
+  for(var i=2; i<6; i++) { 
+    $("#loan_year0" + i).val(defaultYear++); //changed to jquery (getelementById and value = defaultYear++) 
      $("#loan_year0" + i).disabled = true; //changed to jquery (getelementById)
      $("#loan_year0" + i).css("background-color", "lightgray");//changed to jquery (getelementById and style.background-color = gray)
      $("#loan_year0" + i).css("color", "gray");//changed to jquery (getelementById style.color = gray)
@@ -155,8 +156,9 @@ $(document).ready(function(){
      $("#loan_int0" + i).css("background-color", "lightgray"); //changed to jquery (getelementById and style.background-color = gray)
      $("#loan_int0" + i).css("color", "gray");//changed to jquery (getelementById style.color = gray)
    loanWithInterest = (loanWithInterest + defaultLoanAmount) * (1 + defaultInterestRate);
-    $("#loan_bal0" + i).innerHTML = toComma(loanWithInterest.toFixed(2));//changed to jquery (getelementById)
-    } // end: "for" loop
+    $("#loan_bal0" + i).val(toComma(loanWithInterest.toFixed(2)));//changed to jquery (getelementById)
+    }
+  // end: "for" loop
   
   // all input fields: select contents on fucus
   $("input[type=text]").focus(function() {
@@ -177,13 +179,15 @@ $(document).ready(function(){
   $("#loan_int01").blur( function() {
     updateLoansArrayy();  
  });
-//} // end: function ready()
-  });
+  //} // end: function load()
+ };
+
+// add comma to the money
 function toComma(value) {
     return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//});
 }
 
+// updates loans array with new years
 function updateLoansArray() {
   validate($("#loan_year01").val());
   loans[0].loan_year = parseInt($("#loan_year01").val());
@@ -191,10 +195,8 @@ function updateLoansArray() {
     loans[i].loan_year = loans[0].loan_year + i;
     $("#loan_year0"+ (i+1) ).val(loans[i].loan_year);
   }
-  localStorage.setItem("loans" , JSON.stringify(loans));
-  $("#button").click();
-   
-}
+   // end of array
+};
 // UpdateLoansArray for changing interest rate
 function updateLoansArrayy() {
   validate($("#loan_int01").val());
@@ -203,31 +205,36 @@ function updateLoansArrayy() {
   loans[i].loan_int_rate = loans[0].loan_int_rate;
     $("#loan_int0" + (i+1) ).val(loans[i].loan_int_rate);
    }
-   localStorage.setItem("loans" , JSON.stringify(loans));
-  $("#button").click();
-}
+};
 //end of UpdateLoansArrayy
+
+// validate the inpute, only numbers
 function validate(value){
-    //allows only numbers as input
   $(".form-control").css("color", "gray");
 var reg = /^[0-9.]+$/;
 //change color of text to alert user of an invalid input
 if(reg.test(value) == false){
   $(".form-control").css("color", "red");
   alert("Please enter in a number.");
-}}
+}};
+// end of validate function
 
+//save in local storage
 function saveLoan(){
 	//save a new JSON object for the current loans array to localstorage, but dont overide the primary loans object 
 	var str = JSON.stringify(loans);
-	localStorage.setItem("savedLoans", str);
-	}
-function lastSaved(){
-		//update the forms
- window.location.href = "https://juliarg12.github.io/assignment06.html"; 
-	//retrieve the JSON object for the saved loans object
-	loans = JSON.parse(localStorage.getItem("savedLoans"));
+	localStorage.setItem("SaveLoad", str);
+	};
+//end of function
 
+// get the saved and reload it 
+function lastSaved(){
+	//retrieve the JSON object for the saved loans object
+	loans = JSON.parse(localStorage.getItem("SaveLoad"));
+	//update the forms
+  load();
+}
+//end of function
 	}</script>		
 	</body>
 </html>
