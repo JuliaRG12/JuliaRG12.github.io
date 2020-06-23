@@ -223,10 +223,11 @@ function saveLoan(){
 	localStorage.setItem("savedLoans", str);
 	}
 function lastSaved(){
+		//update the forms
+ window.location.href = "https://juliarg12.github.io/assignment06.html"; 
 	//retrieve the JSON object for the saved loans object
 	loans = JSON.parse(localStorage.getItem("savedLoans"));
-	//update the forms
- window.location.href = "https://juliarg12.github.io/assignment06.html"; 
+
 	}</script>		
 	</body>
 </html>
