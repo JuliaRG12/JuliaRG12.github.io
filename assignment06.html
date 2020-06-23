@@ -277,6 +277,7 @@ if(reg.test(value) == false){
   alert("Please enter in a number.");
 }};//end of validating 
 
+
 // save button
 function saveForm(){
 	//save a new JSON object for the current loans array to localstorage, but dont overide the primary loans object 
@@ -292,7 +293,8 @@ function lastSavedForm(){
 	//update the forms
   load();
 }
-	 // angular
+
+// angular
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
   $scope.payments =[];
@@ -324,7 +326,7 @@ app.controller('myCtrl', function($scope) {
       "ye":toMoney(0) // no money to pay back
     }
   }
-});//end 
+});//end
 	</script>		
 	</body>
 </html>
