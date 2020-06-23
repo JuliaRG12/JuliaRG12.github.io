@@ -292,38 +292,39 @@ function lastSavedForm(){
 	//update the forms
   load();
 }
-
-// angular
+	 // angular
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
   $scope.payments =[];
-  $scope.populate = function () {
+  $scope.processForm = function () {
     updateForm();
     let total = loanWithInterest;
-    let iRate = loans[0].loan_int_rate;
-    let r = iRate / 12;
-    let n = 11;
-    //loan payment formula
+    let intRate = loans[0].loan_int_rate;
+    let r = intRate / 12; // interest rate for one mounth
+    let n = (10 * 12); //number of months in 10 years 
+   
+    //loan payment formula //http://webp.svsu.edu/~qefriebe/cis255/as06/as06.html used as refernce. changed for 10 year
     //https://www.thebalance.com/loan-payment-calculations-315564
-    let pay = 12 * (total / ((((1+r)**(n*12))-1)/(r *(1+r)**(n*12))));
-    for (let i = 0; i < 10; i++) {
-      total -= pay //6500
-      let int = total * (iRate); 
-      $scope.payments[i]={
-        "year":loans[4].loan_year + i + 1,
-        "payment": toMoney(pay), //toMoney(6500),
-        "amt": toMoney(int),
-        "ye": toMoney(total += int)
+   let pay = 12 * (total / ((((1+r)**(n))-1)/(r *(1+r)**(n)))); // yearly playment
+    console.log(r);
+    for (let i = 0; i < 9; i++) { //first nine years
+      total -= pay // subtract year payment from total
+      let int = (total * intRate); //set int = interest 
+      $scope.payments[i]={ // set payment[] = year, payment, int amt, ye bal
+        "year":loans[4].loan_year + i + 1, //incress by one year 
+        "payment": toMoney(pay), // one year payment in money
+        "amt": toMoney(int), // interest charged that year in money
+        "ye": toMoney(total += int) // new balance with interest of that year
       }
     }
-    $scope.payments[10] = {
-      "year":loans[4].loan_year + 11,
-      "payment": toMoney(total),
-      "amt": toMoney(0),
-      "ye":toMoney(0)
+    $scope.payments[9] = { //last year
+      "year":loans[4].loan_year + 10, // tenth year
+      "payment": toMoney(total), // pay off the last of the loan 
+      "amt": toMoney(0), // no interest 
+      "ye":toMoney(0) // no money to pay back
     }
   }
-}); //end 
+});//end 
 	</script>		
 	</body>
 </html>
