@@ -180,12 +180,12 @@ $(document).ready( load());
   // set focus to first year: messes up codepen
   // $("#loan_year01").focus();
   $("#loan_year01").blur( function() {
-    updateArrayYears();
+    updateArrayLoan();
       });
    // set focus to first interest rate: messes up codepen
   //Reload interest rate
   $("#loan_int01").blur( function() {
-    updateArrayInterest();  
+    updateArrayLoan();  
  }); //end of function
     
     //blur all loan amount cells
@@ -231,28 +231,44 @@ $(document).ready( load());
 
 //update years cells of form
 function updateArrayYears() {
-  validate($("#loan_year01").val());
-  loans[0].loan_year = parseInt($("#loan_year01").val());
+
   for(var i=1; i<5; i++) {
-    loans[i].loan_year = loans[0].loan_year + i;
-    $("#loan_year0"+ (i+1) ).val(loans[i].loan_year);
+
   }
+  updateForm();
 }// end of function
   
 // UpdateLoansArray for changing interest rate
 function updateArrayInterest() {
-  validate($("#loan_int01").val());
-    loans[0].loan_int_rate = ($("#loan_int01").val());
+
    for(var i=1; i<5; i++) {
-  loans[i].loan_int_rate = loans[0].loan_int_rate;
-    $("#loan_int0" + (i+1) ).val(loans[i].loan_int_rate);
+
    }
+  updateForm();
 }//end of UpdateLoansArrayy
 
 // update amount and year balance
   function updateArrayLoan(){
-     loans[0].loan_year = parseInt($("#loan_year01").val());
-      for(var i=1; i<5; i++) {
+     var valid = true;
+    var reg = /^[0-9.]+$/;
+   if(reg.test($("#loan_year01").val()) == false){valid = false};
+  loans[0].loan_year = parseInt($("#loan_year01").val());
+  if(reg.test($("#loan_int01").val()) == false){valid = false};
+  loans[0].loan_int_rate = ($("#loan_int01").val());
+  for(var i=1; i<5; i++) {
+   if(reg.test($("#loan_amt0" + i).val()) == false){valid = false};
+  }
+    
+    if (valid == true){
+      $(".form-control").css("color", "gray");
+    loans[0].loan_year = parseInt($("#loan_year01").val());
+      
+    for(var i=1; i<5; i++) {
+            loans[i].loan_year = loans[0].loan_year + i;
+    $("#loan_year0"+ (i+1) ).val(loans[i].loan_year);
+          loans[i].loan_int_rate = loans[0].loan_int_rate;
+    $("#loan_int0" + (i+1) ).val(loans[i].loan_int_rate);
+        
         loans[i].loan_year = loans[0].loan_year + i;
       }
       for(i = 1; i<6; i++){
@@ -264,18 +280,17 @@ function updateArrayInterest() {
         loans[i].loan_int_rate = rate;
   }
   updateForm();
+    }
+    else{validate()};
   };
   // end of function
 
 // check for valid input
-function validate(value){
-  $(".form-control").css("color", "gray");
-var reg = /^[0-9.]+$/;
-//change color of text to alert user of an invalid input
-if(reg.test(value) == false){
-  $(".form-control").css("color", "red");
+function validate(){
+   $(".form-control").css("color", "red");
   alert("Please enter in a number.");
-}};//end of validating 
+
+};//end of validating 
 
 
 // save button
@@ -291,6 +306,7 @@ function lastSavedForm(){
 	//retrieve the JSON object for the saved loans object
 	loans = JSON.parse(localStorage.getItem("SaveLoad"));
 	//update the forms
+ // updateForm();
   load();
 }
 
