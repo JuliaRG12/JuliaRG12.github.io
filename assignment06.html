@@ -7,13 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    <title>College Debt Estimator</title>
-
 		<title>College Debt Estimator</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		<!-- bootstrap 4 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-		//<link rel='JavaScrip' href='CollegeDebtEstimator.js'/>
 		<!-- custom css -->
 		<style>
 			
@@ -23,7 +20,7 @@
 
 	</head>
 
-<body onload="">
+<body>
 
     <div class="container">
         <div ng-app="myApp" ng-controller="myCtrl">
@@ -312,7 +309,7 @@ function lastSavedForm(){
 	loans = JSON.parse(localStorage.getItem("SaveLoad"));
 	//update the forms
  // updateForm();
-  load();
+	load();
 }
 
 	 
