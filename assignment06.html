@@ -5,12 +5,13 @@
 	<head>
 
 		<title>College Debt Estimator</title>
-
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 		<!-- bootstrap 4 -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous" />
-		<link rel='JavaScrip' href='CollegeDebtEstimator.js'/>
+		//<link rel='JavaScrip' href='CollegeDebtEstimator.js'/>
 		<!-- custom css -->
 		<style>
+			
 			td, th, td input {text-align: right;}
       #loan_table {background-color: pink;}
 		</style>
@@ -310,6 +311,7 @@ function lastSavedForm(){
   load();
 }
 
+	 
 // angular
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope) {
